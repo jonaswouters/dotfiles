@@ -4,6 +4,20 @@ set -e
 set -o nounset
 set -o pipefail
 
+echo "Make sure you have installed xcode & App Store Apps."
+# no solution to automate AppStore installs
+read -p "Press any key to continue... " -n1 -s
+echo  '\n'
+
+# Link files from other location
+if [ -d "$HOME/InSync/dotfiles/ssh" ]; then
+    echo "Linking SSH config"
+    ln -s $HOME/InSync/dotfiles/ssh $HOME/.ssh
+else
+    echo "Make sure you have InSync installed in $HOME/InSync"
+fi
+
+
 # Check for Homebrew,
 # Install if we don't have it
 if ! which brew >/dev/null 2>&1; then
