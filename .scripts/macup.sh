@@ -15,6 +15,9 @@ else
     brew update
 fi
 
+echo "Upgrading homebrew packages"
+brew upgrade
+
 declare -ra BREW=(
     coreutils
     findutils
